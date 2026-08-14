@@ -30,6 +30,20 @@ button {
     cursor: pointer;
 }
 
+#change-url {
+    position: fixed;
+    top: 6px;
+    right: 6px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+#change-url:hover,
+#change-url:focus-visible {
+    opacity: 1;
+}
+
 #error {
     color: #b00020;
     margin: 0 8px 4px;

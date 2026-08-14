@@ -3,6 +3,7 @@ function initialize() {
     const input = document.getElementById("url-input");
     const frame = document.getElementById("web-frame");
     const error = document.getElementById("error");
+    const changeUrl = document.getElementById("change-url");
 
     const isWebUrl = (value) => {
         try {
@@ -19,12 +20,14 @@ function initialize() {
         error.hidden = false;
         form.hidden = false;
         frame.hidden = true;
+        changeUrl.hidden = true;
     };
 
     const showContent = (url) => {
         form.hidden = true;
         error.hidden = true;
         frame.hidden = false;
+        changeUrl.hidden = false;
         frame.src = url;
     };
 
@@ -34,6 +37,14 @@ function initialize() {
     }
 
     frame.addEventListener("error", () => showError("No se pudo cargar esta página. Prueba otra URL."));
+
+    changeUrl.addEventListener("click", () => {
+        changeUrl.hidden = true;
+        frame.hidden = true;
+        form.hidden = false;
+        error.hidden = true;
+        input.focus();
+    });
 
     form.addEventListener("submit", (event) => {
         event.preventDefault();

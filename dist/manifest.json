@@ -59,7 +59,7 @@
           },
           "requestedWidth": 400,
           "requestedHeight": 400,
-          "disableSnapshot": true
+          "disableSnapshot": false
         }
       ]
     }
