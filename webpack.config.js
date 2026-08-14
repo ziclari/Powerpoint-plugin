@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const urlDev = "https://localhost:3000/";
-const urlProd = "https://ziclari.github.io/Powerpoint-plugin/dist/manifest.json";//"https://officedev.github.io/Office-Add-in-samples/Samples/hello-world/powerpoint-content-hello-world/dist/";
+const urlProd = "https://ziclari.github.io/Powerpoint-plugin/dist/";//"https://officedev.github.io/Office-Add-in-samples/Samples/hello-world/powerpoint-content-hello-world/dist/";
 
 async function getHttpsOptions() {
   const httpsOptions = await devCerts.getHttpsServerOptions();

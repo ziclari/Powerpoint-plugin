@@ -7,10 +7,10 @@
     "defaultLanguageTag": "en-us"
   },
   "developer": {
-    "name": "Contoso",
-    "websiteUrl": "https://www.contoso.com",
-    "privacyUrl": "https://www.contoso.com/privacy",
-    "termsOfUseUrl": "https://www.contoso.com/terms"
+    "name": "ziclari",
+    "websiteUrl": "https://www.ziclari.com",
+    "privacyUrl": "https://www.ziclari.com/privacy",
+    "termsOfUseUrl": "https://www.ziclari.com/terms"
   },
   "name": {
     "short": "PowerPoint Content Add-in",

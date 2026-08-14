@@ -1,52 +1,26 @@
-﻿(function () {
-    "use strict";
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("url-form");
+    const input = document.getElementById("url-input");
+    const frame = document.getElementById("web-frame");
+    const error = document.getElementById("error");
 
-    // The onReady function must be run each time a new page is loaded.
-    Office.onReady(function (info) {
-        document.getElementById("get-data-from-selection").addEventListener("click", () => getDataFromSelection());
-    });
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let url;
 
-    // Gets and displays some details about the current slide.
-    async function getDataFromSelection() {
-        
         try {
-            const container = document.getElementById("app-body") || document.body;
-
-            // 1. Buscamos si ya existe un iframe creado
-            let iframe = document.querySelector("iframe");
-
-            // 2. Si no existe, lo creamos dinámicamente
-            if (!iframe) {
-                iframe = document.createElement("iframe");
-                
-                // Aplicamos estilos para que ocupe el espacio del panel
-                iframe.style.width = "100%";
-                iframe.style.height = "500px";
-                iframe.style.border = "none";
-                iframe.style.marginTop = "10px";
-                iframe.setAttribute("allow", "fullscreen");
-
-                // Lo agregamos al contenedor de la interfaz
-                container.appendChild(iframe);
-            }
-
-            // 3. Le asignamos el sitio web a cargar
-            iframe.src = "https://es.wikipedia.org";
-            await PowerPoint.run(async (context) => {
-                const slides = context.presentation.getSelectedSlides();
-                slides.load("items/id,items/index");
-                await context.sync();
-
-                const details = slides.items.map((slide) => ({
-                    id: slide.id,
-                    index: slide.index
-                }));
-                document.getElementById("selected-data").textContent =
-                    'Hello, world! Some slide details are: ' + JSON.stringify(details);
-            });
-        } catch (error) {
-            document.getElementById("selected-data").textContent = 'Error getting slide details.';
-            console.error('Error:', error.message);
+            url = new URL(input.value);
+        } catch {
+            error.textContent = "Escribe una URL válida.";
+            return;
         }
-    }
-})();
+
+        if (!/^https?:$/.test(url.protocol)) {
+            error.textContent = "La URL debe comenzar con http:// o https://.";
+            return;
+        }
+
+        error.textContent = "";
+        frame.src = url.href;
+    });
+});
