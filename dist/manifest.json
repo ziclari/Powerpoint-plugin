@@ -55,7 +55,7 @@
         {
           "id": "ContentRuntime",
           "code": {
-            "page": "https://officedev.github.io/Office-Add-in-samples/Samples/hello-world/powerpoint-content-hello-world/dist/content.html"
+            "page": "https://ziclari.github.io/Powerpoint-plugin/dist/content.html"
           },
           "requestedWidth": 400,
           "requestedHeight": 400,
